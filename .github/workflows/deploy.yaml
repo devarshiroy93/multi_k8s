@@ -47,13 +47,13 @@ jobs:
  
       - name: Push
         run: |-
-          docker push devarshiroy93/multi-client-k8s-gh:latest
-          docker push devarshiroy93/multi-server-k8s-pgfix-gh:latest
-          docker push devarshiroy93/multi-worker-k8s-gh:latest
+          docker push devarshiroy93/multi-client:latest
+          docker push devarshiroy93/multi-server:latest
+          docker push devarshiroy93/multi-worker:latest
  
-          docker push devarshiroy93/multi-client-k8s-gh:${{ env.SHA }}
-          docker push devarshiroy93/multi-server-k8s-pgfix-gh:${{ env.SHA }}
-          docker push devarshiroy93/multi-worker-k8s-gh:${{ env.SHA }}
+          docker push devarshiroy93/multi-client:${{ env.SHA }}
+          docker push devarshiroy93/multi-server:${{ env.SHA }}
+          docker push devarshiroy93/multi-worker:${{ env.SHA }}
  
       - name: Apply
         run: |-
