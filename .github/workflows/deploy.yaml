@@ -45,16 +45,6 @@ jobs:
           docker build -t rallycoding/multi-server-k8s-gh:latest -t rallycoding/multi-server-k8s-gh:${{ env.SHA }} -f ./server/Dockerfile ./server
           docker build -t rallycoding/multi-worker-k8s-gh:latest -t rallycoding/multi-worker-k8s-gh:${{ env.SHA }} -f ./worker/Dockerfile ./worker
 
-      - name: Push
-        run: |-
-          docker push devarshiroy93/multi-client-k8s-gh:latest
-          docker push devarshiroy93/multi-server-k8s-gh:latest
-          docker push devarshiroy93/multi-worker-k8s-gh:latest
-
-          docker push devarshiroy93/multi-client-k8s-gh:${{ env.SHA }}
-          docker push devarshiroy93/multi-server-k8s-gh:${{ env.SHA }}
-          docker push devarshiroy93/multi-worker-k8s-gh:${{ env.SHA }}
-
       - name: Apply
         run: |-
           kubectl apply -f k8s
