@@ -44,17 +44,6 @@ jobs:
           docker build -t cygnetops/multi-client-k8s-gh:latest -t cygnetops/multi-client-k8s-gh:${{ env.SHA }} -f ./client/Dockerfile ./client
           docker build -t cygnetops/multi-server-k8s-pgfix-gh:latest -t cygnetops/multi-server-k8s-pgfix-gh:${{ env.SHA }} -f ./server/Dockerfile ./server
           docker build -t cygnetops/multi-worker-k8s-gh:latest -t cygnetops/multi-worker-k8s-gh:${{ env.SHA }} -f ./worker/Dockerfile ./worker
- 
-      - name: Push
-        run: |-
-          docker push devarshiroy93/multi-client:latest
-          docker push devarshiroy93/multi-server:latest
-          docker push devarshiroy93/multi-worker:latest
- 
-          docker push devarshiroy93/multi-client:${{ env.SHA }}
-          docker push devarshiroy93/multi-server:${{ env.SHA }}
-          docker push devarshiroy93/multi-worker:${{ env.SHA }}
- 
       - name: Apply
         run: |-
           kubectl apply -f k8s
